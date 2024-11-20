@@ -1,9 +1,6 @@
 package org.example.numberrangesummarizer;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class NumberRangeSummarizerImpl implements NumberRangeSummarizer{
     @Override
@@ -28,6 +25,25 @@ public class NumberRangeSummarizerImpl implements NumberRangeSummarizer{
 
     @Override
     public String summarizeCollection(Collection<Integer> input) {
-        return "";
+        // Ensure that there are values in the input collection
+        if (input.isEmpty()) {
+            return "";
+        }
+        ArrayList<String> output = new ArrayList<>();
+
+        ArrayList<Integer> inputList = new ArrayList<>(input);
+        int start = 0;
+        for (int i = 1; i <= inputList.size(); i++) {
+            if (i == inputList.size() || inputList.get(i) != (inputList.get(i - 1) + 1)) {
+                if (start == i - 1) {
+                    output.add(String.valueOf(inputList.get(start)));
+                } else {
+                    output.add(inputList.get(start) + "-" + inputList.get(i));
+                }
+                start = i;
+            }
+        }
+
+        return String.join(", ", output);
     }
 }
