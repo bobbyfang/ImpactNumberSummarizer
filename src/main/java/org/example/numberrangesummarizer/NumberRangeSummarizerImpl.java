@@ -10,6 +10,7 @@ public class NumberRangeSummarizerImpl implements NumberRangeSummarizer{
         String[] separatedValues = input.split(",");
         for (String separatedValue : separatedValues) {
             try {
+                separatedValue = separatedValue.strip();
                 int value = Integer.parseInt(separatedValue);
                 values.add(value);
             } catch (NumberFormatException e) {
