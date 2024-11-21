@@ -41,7 +41,7 @@ public class NumberRangeSummarizerImpl implements NumberRangeSummarizer{
                 if (start == i - 1) {
                     output.add(String.valueOf(inputList.get(start)));
                 } else {
-                    output.add(inputList.get(start) + "-" + inputList.get(i));
+                    output.add(inputList.get(start) + "-" + inputList.get(i - 1));
                 }
                 start = i;
             }
