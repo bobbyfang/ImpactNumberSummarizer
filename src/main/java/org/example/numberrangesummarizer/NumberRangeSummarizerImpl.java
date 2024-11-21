@@ -31,7 +31,9 @@ public class NumberRangeSummarizerImpl implements NumberRangeSummarizer{
         }
         ArrayList<String> output = new ArrayList<>();
 
-        ArrayList<Integer> inputList = new ArrayList<>(input);
+        // Remove duplicate values by using a set
+        Set<Integer> inputSet = new HashSet<>(input);
+        ArrayList<Integer> inputList = new ArrayList<>(inputSet);
         int start = 0;
         for (int i = 1; i <= inputList.size(); i++) {
             if (i == inputList.size() || inputList.get(i) != (inputList.get(i - 1) + 1)) {
