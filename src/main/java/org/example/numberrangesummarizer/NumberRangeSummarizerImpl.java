@@ -14,7 +14,7 @@ public class NumberRangeSummarizerImpl implements NumberRangeSummarizer{
                 int value = Integer.parseInt(separatedValue);
                 values.add(value);
             } catch (NumberFormatException e) {
-                System.out.println(separatedValue + " cannot be converted into integer.");
+                System.out.println("'" + separatedValue + "' cannot be converted into integer.");
             }
         }
 
